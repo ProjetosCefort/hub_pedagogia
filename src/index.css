@@ -1,0 +1,501 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HubCefort Design System - Professional Educational Platform */
+
+@layer base {
+  :root {
+    /* Core brand colors - Baseado na logo vibrante */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Magenta vibrante da paleta oficial (#c80c96) */
+    --primary: 316 89% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Warm supportive color */
+    --secondary: 210 15% 94%;
+    --secondary-foreground: 215 25% 25%;
+
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 12% 50%;
+
+    /* Accent - Laranja vibrante da paleta oficial (#ff5e21) */
+    --accent: 16 100% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success, Warning, Info */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info - Azul/Turquesa da logo */
+    --info: 200 85% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 316 89% 42%;
+
+    --radius: 0.625rem;
+
+    /* Sidebar - Design profissional neutro com toques sutis da paleta */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 15%;
+    --sidebar-primary: 316 89% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 15% 96%;
+    --sidebar-accent-foreground: 215 25% 15%;
+    --sidebar-border: 214 20% 88%;
+    --sidebar-ring: 316 89% 42%;
+    --sidebar-muted: 215 12% 50%;
+
+    /* Custom tokens - Gradientes baseados na paleta oficial (uso sutil e profissional) */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(280, 100%, 23%) 0%,
+      hsl(316, 89%, 42%) 50%,
+      hsl(16, 100%, 56%) 100%
+    );
+    --gradient-sidebar: linear-gradient(
+      180deg,
+      hsl(0, 0%, 100%) 0%,
+      hsl(210, 20%, 98%) 100%
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(280, 100%, 23%) 0%,
+      hsl(316, 89%, 42%) 50%,
+      hsl(16, 100%, 56%) 100%
+    );
+    --gradient-logo: linear-gradient(
+      135deg,
+      hsl(280, 100%, 23%) 0%,
+      hsl(316, 89%, 42%) 50%,
+      hsl(16, 100%, 56%) 100%
+    );
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md:
+      0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg:
+      0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 2px 8px 0 rgb(0 0 0 / 0.04);
+    --shadow-elevated: 0 4px 20px -2px rgb(0 0 0 / 0.12);
+  }
+
+  .dark {
+    --background: 215 25% 9%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 316 89% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 16 100% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 80% 45%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 200 85% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 316 89% 42%;
+
+    --sidebar-background: 215 25% 12%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 316 89% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 316 89% 42%;
+    --sidebar-muted: 215 15% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 10% 0%, hsl(var(--primary) / 0.06), transparent 40%),
+      radial-gradient(circle at 90% 0%, hsl(var(--accent) / 0.05), transparent 38%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Card variants */
+  .card-elevated {
+    @apply bg-card/95 border border-border/70 rounded-xl backdrop-blur-sm;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Stat cards */
+  .stat-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-200;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+  }
+
+  /* Status badges (ciclo de vida do jovem) */
+  .badge-status-draft {
+    @apply bg-muted text-muted-foreground border-border;
+  }
+  .badge-status-completed {
+    @apply bg-muted/80 text-muted-foreground border-border;
+  }
+  .badge-status-under_analysis {
+    @apply bg-warning/15 text-warning border-warning/30;
+  }
+  .badge-status-pending_documents {
+    @apply bg-warning/15 text-warning border-warning/30;
+  }
+  .badge-status-approved {
+    @apply bg-info/15 text-info border-info/30;
+  }
+  .badge-status-rejected {
+    @apply bg-destructive/15 text-destructive border-destructive/30;
+  }
+  .badge-status-active_apprentice {
+    @apply bg-success/15 text-success border-success/30;
+  }
+  .badge-status-inactive {
+    @apply bg-warning/15 text-warning border-warning/30;
+  }
+  .badge-status-terminated {
+    @apply bg-destructive/15 text-destructive border-destructive/30;
+  }
+  .badge-status-completed_program {
+    @apply bg-info/15 text-info border-info/30;
+  }
+  /* Legado (mapeamento pós-migração) */
+  .badge-status-ativo {
+    @apply bg-success/15 text-success border-success/30;
+  }
+  .badge-status-inativo {
+    @apply bg-warning/15 text-warning border-warning/30;
+  }
+  .badge-status-desligado {
+    @apply bg-destructive/15 text-destructive border-destructive/30;
+  }
+  .badge-status-formado {
+    @apply bg-info/15 text-info border-info/30;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-border last:pb-0 last:border-transparent;
+  }
+
+  .timeline-item::before {
+    @apply absolute left-0 w-4 h-4 -translate-x-1/2 rounded-full bg-primary border-4 border-background;
+    content: "";
+    top: 0;
+  }
+
+  .timeline-item.timeline-intervencao::before {
+    @apply bg-info;
+  }
+
+  .timeline-item.timeline-servico_social::before {
+    @apply bg-primary;
+  }
+
+  .timeline-item.timeline-pedagogica::before {
+    @apply bg-accent;
+  }
+
+  .timeline-item.timeline-socioeconomica::before {
+    @apply bg-warning;
+  }
+
+  .timeline-item.timeline-encaminhamento::before {
+    @apply bg-primary;
+  }
+
+  .timeline-item.timeline-avaliacao_pratica::before {
+    @apply bg-info;
+  }
+
+  .timeline-item.timeline-solicitacao_setorial::before {
+    @apply bg-warning;
+  }
+
+  /* Form sections */
+  .form-section {
+    @apply space-y-4 p-6 bg-muted/30 rounded-lg border border-border;
+  }
+
+  .form-section-title {
+    @apply text-sm font-semibold text-primary uppercase tracking-wider mb-4;
+  }
+
+  .document-template-editor:empty::before {
+    content: attr(data-placeholder);
+    @apply text-muted-foreground;
+  }
+
+  .document-template-editor p,
+  .document-template-preview p {
+    @apply mb-3 last:mb-0;
+  }
+
+  .document-template-editor h1,
+  .document-template-preview h1 {
+    @apply mb-3 text-3xl font-bold;
+  }
+
+  .document-template-editor h2,
+  .document-template-preview h2 {
+    @apply mb-3 text-2xl font-semibold;
+  }
+
+  .document-template-editor h3,
+  .document-template-preview h3 {
+    @apply mb-2 text-xl font-semibold;
+  }
+
+  .document-template-editor ul,
+  .document-template-preview ul {
+    @apply my-3 list-disc pl-6;
+  }
+
+  .document-template-editor ol,
+  .document-template-preview ol {
+    @apply my-3 list-decimal pl-6;
+  }
+
+  .document-template-editor blockquote,
+  .document-template-preview blockquote {
+    @apply my-3 border-l-4 border-border pl-4 italic text-muted-foreground;
+  }
+
+  .document-template-editor img,
+  .document-template-preview img {
+    @apply my-3 h-auto max-w-full rounded-md;
+  }
+
+  .document-template-editor a,
+  .document-template-preview a {
+    @apply text-primary underline underline-offset-2;
+  }
+
+  /* Navigation active state */
+  .nav-active {
+    @apply bg-sidebar-accent text-sidebar-primary font-medium;
+    border-left: 3px solid hsl(var(--sidebar-primary));
+  }
+
+  /* Page header */
+  .page-header {
+    @apply mb-6;
+  }
+
+  .page-title {
+    @apply text-xl font-bold text-foreground tracking-tight sm:text-2xl xl:text-[1.75rem];
+  }
+
+  .page-description {
+    @apply text-muted-foreground mt-1 text-sm sm:text-base;
+  }
+
+  /* Table enhancements */
+  .table-container {
+    @apply bg-card/95 rounded-xl border border-border/70 overflow-x-auto overflow-y-hidden backdrop-blur-sm;
+    box-shadow: var(--shadow-card);
+  }
+
+  .table-container table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  /* Shared shell */
+  .app-main {
+    @apply relative;
+  }
+
+  .app-content-container {
+    @apply mx-auto w-full max-w-[1800px] px-3 py-4 sm:px-4 sm:py-6 lg:px-6 xl:px-8 2xl:px-10;
+  }
+
+  /* Shared filters */
+  .filters-panel {
+    @apply border border-border/70 bg-card/95 shadow-sm backdrop-blur-sm;
+  }
+
+  .filters-grid {
+    @apply grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5;
+  }
+
+  .filters-grid-compact {
+    @apply grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .filters-actions {
+    @apply flex flex-wrap items-center justify-end gap-2;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-sidebar {
+    background: var(--gradient-sidebar);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-logo {
+    background: var(--gradient-logo);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+}
+
+@media (max-width: 1023px) {
+  .table-container {
+    border-radius: 0.875rem;
+  }
+}
+
+/* Imprimir apenas o conteúdo marcado com .print-area (avaliação/encaminhamento) */
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+}

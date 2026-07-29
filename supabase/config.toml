@@ -1,0 +1,10 @@
+project_id = "phxffszwcpmwxbsaqzlm"
+
+[functions.public-submit-practical-evaluation]
+verify_jwt = false
+
+[functions.process-expired-document-reminders]
+verify_jwt = false
+
+[functions.send-email]
+verify_jwt = false

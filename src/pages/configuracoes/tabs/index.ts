@@ -1,0 +1,9 @@
+export { MotivosIntervencaoTab } from "./MotivosIntervencaoTab";
+export { MotivosAvaliacaoPedagogicaTab } from "./MotivosAvaliacaoPedagogicaTab";
+export { AtendimentosServicoSocialTab } from "./AtendimentosServicoSocialTab";
+export { AproveitamentoEscolarTab } from "./AproveitamentoEscolarTab";
+export { RegistrosSociaisTab } from "./RegistrosSociaisTab";
+export { ModelosEncaminhamentoTab } from "./ModelosEncaminhamentoTab";
+export { ModelosDocumentosTab } from "./ModelosDocumentosTab";
+export { ParametrosGlobaisTab } from "./ParametrosGlobaisTab";
+export { PerfisPermissoesTab } from "./PerfisPermissoesTab";

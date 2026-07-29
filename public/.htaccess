@@ -1,0 +1,33 @@
+# Evita conflito de content negotiation com rotas SPA
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+# Habilitar Rewrite Engine para SPA React
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Nunca reescrever o próprio index
+  RewriteRule ^index\.html$ - [L]
+
+  # Se arquivo ou pasta existir, servir normalmente
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Qualquer rota da SPA vai para index.html
+  RewriteRule . index.html [L]
+</IfModule>
+
+# Configurações de cache para arquivos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
